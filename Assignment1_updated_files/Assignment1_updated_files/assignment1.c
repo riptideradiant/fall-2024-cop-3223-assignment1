@@ -1,36 +1,38 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 #define pi 3.14159
 
 double askForUserInput()
 {
 
-double pointvalue = 0;
-scanf("%lf", &pointvalue);
+double pointValue = 0;
+scanf("%lf", &pointValue);
 
-return pointvalue;
+return pointValue;
 }
 
 double distanceCalculator()
 {
    
 printf("Enter the x value point 1: \n");
-double point1Xvalue = askForUserInput();
+double point1XValue = askForUserInput();
 
 printf("Enter the y value of point 1: \n");
-double point1Yvalue = askForUserInput();
+double point1YValue = askForUserInput();
 
 printf("Enter the x value point 2: \n");
-double point2Xvalue = askForUserInput();
+double point2XValue = askForUserInput();
 
 printf("Enter the y value point 2: \n");
-double point2Yvalue = askForUserInput();
+double point2YValue = askForUserInput();
 
-double distanceX = point1Xvalue - point2Xvalue;
-double distanceY = point1Yvalue - point2Yvalue;
+double distanceX = point1XValue - point2XValue;
+double distanceY = point1YValue - point2YValue;
 double distance = sqrt(pow(distanceX, 2) + pow(distanceY,2));
-printf("Point #1 entered: x1 = %lf; y1 = %lf \n", point1Xvalue, point1Yvalue);
-printf("Point #2 entered: x1 = %lf; y1 = %lf \n", point2Xvalue, point2Yvalue);
+
+printf("Point #1 entered: x1 = %lf; y1 = %lf \n", point1XValue, point1YValue);
+printf("Point #2 entered: x1 = %lf; y1 = %lf \n", point2XValue, point2YValue);
 
 return distance;
 }
@@ -50,17 +52,63 @@ double calculatePerimeter()
 
 double diameter = distanceCalculator();
 double perimeter = pi*diameter;
-double difficulty1 = 5;
+double difficulty1 = 3;
 
 printf("The perimeter of the city encompassed by your request is %lf \n", perimeter);
 return difficulty1;
 }
 
+double calculateArea()
+{
+
+double diameter = distanceCalculator();
+double Area = 0.25*pi*pow(diameter, 2);
+double difficulty2 = 2;
+
+printf("The area of the city encompassed by your request is %lf \n", Area);
+return difficulty2;
+}
+
+double calculateWidth()
+{
+
+printf("Enter the x value point 1: \n");
+double point1XValue = askForUserInput();
+
+printf("Enter the x value point 2: \n");
+double point2XValue = askForUserInput();
+
+double width = abs(point1XValue - point2XValue);
+double difficulty3 = 1;
+
+printf("The width of the city encompassed by your request is %lf \n", width);
+
+return difficulty3;
+}
+
+double calculateHeight()
+{
+
+printf("Enter the y value point 1: \n");
+double point1YValue = askForUserInput();
+
+printf("Enter the y value point 2: \n");
+double point2YValue = askForUserInput();
+
+double height = abs(point1YValue - point2YValue);
+double difficulty4 = 1;
+
+printf("The height of the city encompassed by your request is %lf \n", height);
+return difficulty4;
+}
 int main(int argc, char **argv)
 {
 
 calculateDistance();
 calculatePerimeter();
+calculateArea();
+calculateWidth();
+calculateHeight();
 
 return 0;
 }
